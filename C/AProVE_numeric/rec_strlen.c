@@ -1,3 +1,5 @@
+#include <stdlib.h>
+
 extern int __VERIFIER_nondet_int(void);
 
 int strlen_rec(const char *p) {
