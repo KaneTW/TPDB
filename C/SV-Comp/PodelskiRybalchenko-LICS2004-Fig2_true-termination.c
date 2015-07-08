@@ -1,6 +1,8 @@
 /*
- * Program from Fig.2 of
- * 2004LICS - Podelski, Rybalchenko - Transition Invariants
+ * Program from 
+ * Fig.2 of 2004LICS - Podelski, Rybalchenko - Transition Invariants
+ * and
+ * Fig.3 of 2011TACAS - Podelski,Rybalchenko - Transition Invariants and Transition Predicate Abstraction for Program Termination
  *
  * Date: 2014
  * Author: Caterina Urban, Matthias Heizmann
