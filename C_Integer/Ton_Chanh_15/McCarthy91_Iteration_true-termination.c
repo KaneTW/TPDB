@@ -3,11 +3,14 @@
  * Created by: Ton Chanh Le (chanhle@comp.nus.edu.sg)
  */
 
-extern int __VERIFIER_nondet_int();
+typedef enum {false, true} bool;
 
-int mc91(int n)
-{
-  int c = 1;
+extern int __VERIFIER_nondet_int(void);
+
+int main() {
+  int c, n;
+  c = 1;
+  n = __VERIFIER_nondet_int();
   while (c > 0) {
     if (n > 100) {
       n = n - 10;
@@ -17,10 +20,5 @@ int mc91(int n)
       c = c + 1;
     }
   }
-  return n;
-}
-
-int main() {
-  int x = __VERIFIER_nondet_int();
-  mc91(x);
+  return 0;
 }
