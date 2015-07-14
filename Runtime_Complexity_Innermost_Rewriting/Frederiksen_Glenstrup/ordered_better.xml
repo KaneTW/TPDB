@@ -257,18 +257,10 @@
                 <funapp>
                   <name>Cons</name>
                   <arg>
-                    <var>x'</var>
+                    <var>x</var>
                   </arg>
                   <arg>
-                    <funapp>
-                      <name>Cons</name>
-                      <arg>
-                        <var>x</var>
-                      </arg>
-                      <arg>
-                        <var>xs</var>
-                      </arg>
-                    </funapp>
+                    <var>xs</var>
                   </arg>
                 </funapp>
               </arg>
@@ -354,7 +346,7 @@
   </trs>
   <strategy>INNERMOST</strategy>
   <metainformation>
-    <originalfilename>Frederiksen_Glenstrup/ordered.tml.trs</originalfilename>
+    <originalfilename>Frederiksen_Glenstrup/ordered_better.tml.trs</originalfilename>
   </metainformation>
 </problem>
 

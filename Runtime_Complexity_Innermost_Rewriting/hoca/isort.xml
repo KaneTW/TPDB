@@ -6,20 +6,71 @@
       <rule>
         <lhs>
           <funapp>
-            <name>@</name>
+            <name>sort#2</name>
+            <arg>
+              <funapp>
+                <name>Nil</name>
+              </funapp>
+            </arg>
+          </funapp>
+        </lhs>
+        <rhs>
+          <funapp>
+            <name>Nil</name>
+          </funapp>
+        </rhs>
+      </rule>
+      <rule>
+        <lhs>
+          <funapp>
+            <name>sort#2</name>
             <arg>
               <funapp>
                 <name>Cons</name>
                 <arg>
-                  <var>x</var>
+                  <var>x4</var>
                 </arg>
                 <arg>
-                  <var>xs</var>
+                  <var>x2</var>
                 </arg>
               </funapp>
             </arg>
+          </funapp>
+        </lhs>
+        <rhs>
+          <funapp>
+            <name>insert#3</name>
             <arg>
-              <var>ys</var>
+              <var>x4</var>
+            </arg>
+            <arg>
+              <funapp>
+                <name>sort#2</name>
+                <arg>
+                  <var>x2</var>
+                </arg>
+              </funapp>
+            </arg>
+          </funapp>
+        </rhs>
+      </rule>
+      <rule>
+        <lhs>
+          <funapp>
+            <name>cond_insert_ord_x_ys_1</name>
+            <arg>
+              <funapp>
+                <name>True</name>
+              </funapp>
+            </arg>
+            <arg>
+              <var>x3</var>
+            </arg>
+            <arg>
+              <var>x2</var>
+            </arg>
+            <arg>
+              <var>x1</var>
             </arg>
           </funapp>
         </lhs>
@@ -27,16 +78,16 @@
           <funapp>
             <name>Cons</name>
             <arg>
-              <var>x</var>
+              <var>x3</var>
             </arg>
             <arg>
               <funapp>
-                <name>@</name>
+                <name>Cons</name>
                 <arg>
-                  <var>xs</var>
+                  <var>x2</var>
                 </arg>
                 <arg>
-                  <var>ys</var>
+                  <var>x1</var>
                 </arg>
               </funapp>
             </arg>
@@ -46,73 +97,67 @@
       <rule>
         <lhs>
           <funapp>
-            <name>@</name>
+            <name>cond_insert_ord_x_ys_1</name>
+            <arg>
+              <funapp>
+                <name>False</name>
+              </funapp>
+            </arg>
+            <arg>
+              <var>x3</var>
+            </arg>
+            <arg>
+              <var>x2</var>
+            </arg>
+            <arg>
+              <var>x1</var>
+            </arg>
+          </funapp>
+        </lhs>
+        <rhs>
+          <funapp>
+            <name>Cons</name>
+            <arg>
+              <var>x2</var>
+            </arg>
+            <arg>
+              <funapp>
+                <name>insert#3</name>
+                <arg>
+                  <var>x3</var>
+                </arg>
+                <arg>
+                  <var>x1</var>
+                </arg>
+              </funapp>
+            </arg>
+          </funapp>
+        </rhs>
+      </rule>
+      <rule>
+        <lhs>
+          <funapp>
+            <name>insert#3</name>
+            <arg>
+              <var>x2</var>
+            </arg>
             <arg>
               <funapp>
                 <name>Nil</name>
               </funapp>
             </arg>
-            <arg>
-              <var>ys</var>
-            </arg>
-          </funapp>
-        </lhs>
-        <rhs>
-          <var>ys</var>
-        </rhs>
-      </rule>
-      <rule>
-        <lhs>
-          <funapp>
-            <name>game</name>
-            <arg>
-              <var>p1</var>
-            </arg>
-            <arg>
-              <funapp>
-                <name>Cons</name>
-                <arg>
-                  <var>x'</var>
-                </arg>
-                <arg>
-                  <var>xs'</var>
-                </arg>
-              </funapp>
-            </arg>
-            <arg>
-              <funapp>
-                <name>Cons</name>
-                <arg>
-                  <funapp>
-                    <name>Capture</name>
-                  </funapp>
-                </arg>
-                <arg>
-                  <var>xs</var>
-                </arg>
-              </funapp>
-            </arg>
           </funapp>
         </lhs>
         <rhs>
           <funapp>
-            <name>game</name>
+            <name>Cons</name>
+            <arg>
+              <var>x2</var>
+            </arg>
             <arg>
               <funapp>
-                <name>Cons</name>
-                <arg>
-                  <var>x'</var>
-                </arg>
-                <arg>
-                  <var>p1</var>
-                </arg>
+                <name>Nil</name>
               </funapp>
-            </arg>
-            <arg>
-              <var>xs'</var>
-            </arg>
-            <arg>
-              <var>xs</var>
             </arg>
           </funapp>
         </rhs>
@@ -120,23 +165,18 @@
       <rule>
         <lhs>
           <funapp>
-            <name>game</name>
+            <name>insert#3</name>
             <arg>
-              <var>p1</var>
-            </arg>
-            <arg>
-              <var>p2</var>
+              <var>x6</var>
             </arg>
             <arg>
               <funapp>
                 <name>Cons</name>
                 <arg>
-                  <funapp>
-                    <name>Swap</name>
-                  </funapp>
+                  <var>x4</var>
                 </arg>
                 <arg>
-                  <var>xs</var>
+                  <var>x2</var>
                 </arg>
               </funapp>
             </arg>
@@ -144,15 +184,26 @@
         </lhs>
         <rhs>
           <funapp>
-            <name>game</name>
+            <name>cond_insert_ord_x_ys_1</name>
             <arg>
-              <var>p2</var>
+              <funapp>
+                <name>leq#2</name>
+                <arg>
+                  <var>x6</var>
+                </arg>
+                <arg>
+                  <var>x4</var>
+                </arg>
+              </funapp>
             </arg>
             <arg>
-              <var>p1</var>
+              <var>x6</var>
             </arg>
             <arg>
-              <var>xs</var>
+              <var>x4</var>
+            </arg>
+            <arg>
+              <var>x2</var>
             </arg>
           </funapp>
         </rhs>
@@ -160,16 +211,14 @@
       <rule>
         <lhs>
           <funapp>
-            <name>equal</name>
+            <name>leq#2</name>
             <arg>
               <funapp>
-                <name>Capture</name>
+                <name>0</name>
               </funapp>
             </arg>
             <arg>
-              <funapp>
-                <name>Capture</name>
-              </funapp>
+              <var>x8</var>
             </arg>
           </funapp>
         </lhs>
@@ -182,15 +231,18 @@
       <rule>
         <lhs>
           <funapp>
-            <name>equal</name>
+            <name>leq#2</name>
             <arg>
               <funapp>
-                <name>Capture</name>
+                <name>S</name>
+                <arg>
+                  <var>x12</var>
+                </arg>
               </funapp>
             </arg>
             <arg>
               <funapp>
-                <name>Swap</name>
+                <name>0</name>
               </funapp>
             </arg>
           </funapp>
@@ -204,72 +256,33 @@
       <rule>
         <lhs>
           <funapp>
-            <name>equal</name>
+            <name>leq#2</name>
             <arg>
               <funapp>
-                <name>Swap</name>
+                <name>S</name>
+                <arg>
+                  <var>x4</var>
+                </arg>
               </funapp>
             </arg>
             <arg>
               <funapp>
-                <name>Capture</name>
-              </funapp>
-            </arg>
-          </funapp>
-        </lhs>
-        <rhs>
-          <funapp>
-            <name>False</name>
-          </funapp>
-        </rhs>
-      </rule>
-      <rule>
-        <lhs>
-          <funapp>
-            <name>equal</name>
-            <arg>
-              <funapp>
-                <name>Swap</name>
-              </funapp>
-            </arg>
-            <arg>
-              <funapp>
-                <name>Swap</name>
+                <name>S</name>
+                <arg>
+                  <var>x2</var>
+                </arg>
               </funapp>
             </arg>
           </funapp>
         </lhs>
         <rhs>
           <funapp>
-            <name>True</name>
-          </funapp>
-        </rhs>
-      </rule>
-      <rule>
-        <lhs>
-          <funapp>
-            <name>game</name>
+            <name>leq#2</name>
             <arg>
-              <var>p1</var>
+              <var>x4</var>
             </arg>
             <arg>
-              <var>p2</var>
-            </arg>
-            <arg>
-              <funapp>
-                <name>Nil</name>
-              </funapp>
-            </arg>
-          </funapp>
-        </lhs>
-        <rhs>
-          <funapp>
-            <name>@</name>
-            <arg>
-              <var>p1</var>
-            </arg>
-            <arg>
-              <var>p2</var>
+              <var>x2</var>
             </arg>
           </funapp>
         </rhs>
@@ -277,29 +290,17 @@
       <rule>
         <lhs>
           <funapp>
-            <name>goal</name>
+            <name>main</name>
             <arg>
-              <var>p1</var>
-            </arg>
-            <arg>
-              <var>p2</var>
-            </arg>
-            <arg>
-              <var>moves</var>
+              <var>x1</var>
             </arg>
           </funapp>
         </lhs>
         <rhs>
           <funapp>
-            <name>game</name>
+            <name>sort#2</name>
             <arg>
-              <var>p1</var>
-            </arg>
-            <arg>
-              <var>p2</var>
-            </arg>
-            <arg>
-              <var>moves</var>
+              <var>x1</var>
             </arg>
           </funapp>
         </rhs>
@@ -307,32 +308,24 @@
     </rules>
     <signature>
       <funcsym>
-        <name>@</name>
-        <arity>2</arity>
-      </funcsym>
-      <funcsym>
-        <name>Cons</name>
-        <arity>2</arity>
+        <name>sort#2</name>
+        <arity>1</arity>
       </funcsym>
       <funcsym>
         <name>Nil</name>
         <arity>0</arity>
       </funcsym>
       <funcsym>
-        <name>game</name>
-        <arity>3</arity>
-      </funcsym>
-      <funcsym>
-        <name>Capture</name>
-        <arity>0</arity>
-      </funcsym>
-      <funcsym>
-        <name>Swap</name>
-        <arity>0</arity>
-      </funcsym>
-      <funcsym>
-        <name>equal</name>
+        <name>Cons</name>
         <arity>2</arity>
+      </funcsym>
+      <funcsym>
+        <name>insert#3</name>
+        <arity>2</arity>
+      </funcsym>
+      <funcsym>
+        <name>cond_insert_ord_x_ys_1</name>
+        <arity>4</arity>
       </funcsym>
       <funcsym>
         <name>True</name>
@@ -343,14 +336,26 @@
         <arity>0</arity>
       </funcsym>
       <funcsym>
-        <name>goal</name>
-        <arity>3</arity>
+        <name>leq#2</name>
+        <arity>2</arity>
+      </funcsym>
+      <funcsym>
+        <name>0</name>
+        <arity>0</arity>
+      </funcsym>
+      <funcsym>
+        <name>S</name>
+        <arity>1</arity>
+      </funcsym>
+      <funcsym>
+        <name>main</name>
+        <arity>1</arity>
       </funcsym>
     </signature>
   </trs>
   <strategy>INNERMOST</strategy>
   <metainformation>
-    <originalfilename>Frederiksen_Glenstrup/game.tml.trs</originalfilename>
+    <originalfilename>hoca/isort.trs</originalfilename>
   </metainformation>
 </problem>
 
