@@ -6,63 +6,7 @@
       <rule>
         <lhs>
           <funapp>
-            <name>prefix</name>
-            <arg>
-              <funapp>
-                <name>Cons</name>
-                <arg>
-                  <var>x'</var>
-                </arg>
-                <arg>
-                  <var>xs'</var>
-                </arg>
-              </funapp>
-            </arg>
-            <arg>
-              <funapp>
-                <name>Cons</name>
-                <arg>
-                  <var>x</var>
-                </arg>
-                <arg>
-                  <var>xs</var>
-                </arg>
-              </funapp>
-            </arg>
-          </funapp>
-        </lhs>
-        <rhs>
-          <funapp>
-            <name>and</name>
-            <arg>
-              <funapp>
-                <name>!EQ</name>
-                <arg>
-                  <var>x'</var>
-                </arg>
-                <arg>
-                  <var>x</var>
-                </arg>
-              </funapp>
-            </arg>
-            <arg>
-              <funapp>
-                <name>prefix</name>
-                <arg>
-                  <var>xs'</var>
-                </arg>
-                <arg>
-                  <var>xs</var>
-                </arg>
-              </funapp>
-            </arg>
-          </funapp>
-        </rhs>
-      </rule>
-      <rule>
-        <lhs>
-          <funapp>
-            <name>domatch</name>
+            <name>@</name>
             <arg>
               <funapp>
                 <name>Cons</name>
@@ -75,37 +19,7 @@
               </funapp>
             </arg>
             <arg>
-              <funapp>
-                <name>Nil</name>
-              </funapp>
-            </arg>
-            <arg>
-              <var>n</var>
-            </arg>
-          </funapp>
-        </lhs>
-        <rhs>
-          <funapp>
-            <name>Nil</name>
-          </funapp>
-        </rhs>
-      </rule>
-      <rule>
-        <lhs>
-          <funapp>
-            <name>domatch</name>
-            <arg>
-              <funapp>
-                <name>Nil</name>
-              </funapp>
-            </arg>
-            <arg>
-              <funapp>
-                <name>Nil</name>
-              </funapp>
-            </arg>
-            <arg>
-              <var>n</var>
+              <var>ys</var>
             </arg>
           </funapp>
         </lhs>
@@ -113,11 +27,17 @@
           <funapp>
             <name>Cons</name>
             <arg>
-              <var>n</var>
+              <var>x</var>
             </arg>
             <arg>
               <funapp>
-                <name>Nil</name>
+                <name>@</name>
+                <arg>
+                  <var>xs</var>
+                </arg>
+                <arg>
+                  <var>ys</var>
+                </arg>
               </funapp>
             </arg>
           </funapp>
@@ -126,7 +46,25 @@
       <rule>
         <lhs>
           <funapp>
-            <name>prefix</name>
+            <name>@</name>
+            <arg>
+              <funapp>
+                <name>Nil</name>
+              </funapp>
+            </arg>
+            <arg>
+              <var>ys</var>
+            </arg>
+          </funapp>
+        </lhs>
+        <rhs>
+          <var>ys</var>
+        </rhs>
+      </rule>
+      <rule>
+        <lhs>
+          <funapp>
+            <name>gt0</name>
             <arg>
               <funapp>
                 <name>Cons</name>
@@ -142,26 +80,6 @@
               <funapp>
                 <name>Nil</name>
               </funapp>
-            </arg>
-          </funapp>
-        </lhs>
-        <rhs>
-          <funapp>
-            <name>False</name>
-          </funapp>
-        </rhs>
-      </rule>
-      <rule>
-        <lhs>
-          <funapp>
-            <name>prefix</name>
-            <arg>
-              <funapp>
-                <name>Nil</name>
-              </funapp>
-            </arg>
-            <arg>
-              <var>cs</var>
             </arg>
           </funapp>
         </lhs>
@@ -174,9 +92,17 @@
       <rule>
         <lhs>
           <funapp>
-            <name>domatch</name>
+            <name>gt0</name>
             <arg>
-              <var>patcs</var>
+              <funapp>
+                <name>Cons</name>
+                <arg>
+                  <var>x'</var>
+                </arg>
+                <arg>
+                  <var>xs'</var>
+                </arg>
+              </funapp>
             </arg>
             <arg>
               <funapp>
@@ -189,19 +115,142 @@
                 </arg>
               </funapp>
             </arg>
+          </funapp>
+        </lhs>
+        <rhs>
+          <funapp>
+            <name>gt0</name>
             <arg>
-              <var>n</var>
+              <var>xs'</var>
+            </arg>
+            <arg>
+              <var>xs</var>
+            </arg>
+          </funapp>
+        </rhs>
+      </rule>
+      <rule>
+        <lhs>
+          <funapp>
+            <name>gcd</name>
+            <arg>
+              <funapp>
+                <name>Nil</name>
+              </funapp>
+            </arg>
+            <arg>
+              <funapp>
+                <name>Nil</name>
+              </funapp>
             </arg>
           </funapp>
         </lhs>
         <rhs>
           <funapp>
-            <name>domatch[Ite]</name>
+            <name>Nil</name>
+          </funapp>
+        </rhs>
+      </rule>
+      <rule>
+        <lhs>
+          <funapp>
+            <name>gcd</name>
             <arg>
               <funapp>
-                <name>prefix</name>
+                <name>Nil</name>
+              </funapp>
+            </arg>
+            <arg>
+              <funapp>
+                <name>Cons</name>
                 <arg>
-                  <var>patcs</var>
+                  <var>x</var>
+                </arg>
+                <arg>
+                  <var>xs</var>
+                </arg>
+              </funapp>
+            </arg>
+          </funapp>
+        </lhs>
+        <rhs>
+          <funapp>
+            <name>Nil</name>
+          </funapp>
+        </rhs>
+      </rule>
+      <rule>
+        <lhs>
+          <funapp>
+            <name>gcd</name>
+            <arg>
+              <funapp>
+                <name>Cons</name>
+                <arg>
+                  <var>x</var>
+                </arg>
+                <arg>
+                  <var>xs</var>
+                </arg>
+              </funapp>
+            </arg>
+            <arg>
+              <funapp>
+                <name>Nil</name>
+              </funapp>
+            </arg>
+          </funapp>
+        </lhs>
+        <rhs>
+          <funapp>
+            <name>Nil</name>
+          </funapp>
+        </rhs>
+      </rule>
+      <rule>
+        <lhs>
+          <funapp>
+            <name>gcd</name>
+            <arg>
+              <funapp>
+                <name>Cons</name>
+                <arg>
+                  <var>x'</var>
+                </arg>
+                <arg>
+                  <var>xs'</var>
+                </arg>
+              </funapp>
+            </arg>
+            <arg>
+              <funapp>
+                <name>Cons</name>
+                <arg>
+                  <var>x</var>
+                </arg>
+                <arg>
+                  <var>xs</var>
+                </arg>
+              </funapp>
+            </arg>
+          </funapp>
+        </lhs>
+        <rhs>
+          <funapp>
+            <name>gcd[Ite]</name>
+            <arg>
+              <funapp>
+                <name>eqList</name>
+                <arg>
+                  <funapp>
+                    <name>Cons</name>
+                    <arg>
+                      <var>x'</var>
+                    </arg>
+                    <arg>
+                      <var>xs'</var>
+                    </arg>
+                  </funapp>
                 </arg>
                 <arg>
                   <funapp>
@@ -217,7 +266,15 @@
               </funapp>
             </arg>
             <arg>
-              <var>patcs</var>
+              <funapp>
+                <name>Cons</name>
+                <arg>
+                  <var>x'</var>
+                </arg>
+                <arg>
+                  <var>xs'</var>
+                </arg>
+              </funapp>
             </arg>
             <arg>
               <funapp>
@@ -230,8 +287,51 @@
                 </arg>
               </funapp>
             </arg>
+          </funapp>
+        </rhs>
+      </rule>
+      <rule>
+        <lhs>
+          <funapp>
+            <name>lgth</name>
             <arg>
-              <var>n</var>
+              <funapp>
+                <name>Cons</name>
+                <arg>
+                  <var>x</var>
+                </arg>
+                <arg>
+                  <var>xs</var>
+                </arg>
+              </funapp>
+            </arg>
+          </funapp>
+        </lhs>
+        <rhs>
+          <funapp>
+            <name>@</name>
+            <arg>
+              <funapp>
+                <name>Cons</name>
+                <arg>
+                  <funapp>
+                    <name>Nil</name>
+                  </funapp>
+                </arg>
+                <arg>
+                  <funapp>
+                    <name>Nil</name>
+                  </funapp>
+                </arg>
+              </funapp>
+            </arg>
+            <arg>
+              <funapp>
+                <name>lgth</name>
+                <arg>
+                  <var>xs</var>
+                </arg>
+              </funapp>
             </arg>
           </funapp>
         </rhs>
@@ -239,7 +339,7 @@
       <rule>
         <lhs>
           <funapp>
-            <name>eqNatList</name>
+            <name>eqList</name>
             <arg>
               <funapp>
                 <name>Cons</name>
@@ -266,29 +366,195 @@
         </lhs>
         <rhs>
           <funapp>
-            <name>eqNatList[Ite]</name>
+            <name>and</name>
             <arg>
               <funapp>
-                <name>!EQ</name>
+                <name>eqList</name>
                 <arg>
                   <var>x</var>
                 </arg>
                 <arg>
                   <var>y</var>
                 </arg>
+              </funapp>
+            </arg>
+            <arg>
+              <funapp>
+                <name>eqList</name>
+                <arg>
+                  <var>xs</var>
+                </arg>
+                <arg>
+                  <var>ys</var>
+                </arg>
+              </funapp>
+            </arg>
+          </funapp>
+        </rhs>
+      </rule>
+      <rule>
+        <lhs>
+          <funapp>
+            <name>eqList</name>
+            <arg>
+              <funapp>
+                <name>Cons</name>
+                <arg>
+                  <var>x</var>
+                </arg>
+                <arg>
+                  <var>xs</var>
+                </arg>
+              </funapp>
+            </arg>
+            <arg>
+              <funapp>
+                <name>Nil</name>
+              </funapp>
+            </arg>
+          </funapp>
+        </lhs>
+        <rhs>
+          <funapp>
+            <name>False</name>
+          </funapp>
+        </rhs>
+      </rule>
+      <rule>
+        <lhs>
+          <funapp>
+            <name>eqList</name>
+            <arg>
+              <funapp>
+                <name>Nil</name>
+              </funapp>
+            </arg>
+            <arg>
+              <funapp>
+                <name>Cons</name>
+                <arg>
+                  <var>y</var>
+                </arg>
+                <arg>
+                  <var>ys</var>
+                </arg>
+              </funapp>
+            </arg>
+          </funapp>
+        </lhs>
+        <rhs>
+          <funapp>
+            <name>False</name>
+          </funapp>
+        </rhs>
+      </rule>
+      <rule>
+        <lhs>
+          <funapp>
+            <name>eqList</name>
+            <arg>
+              <funapp>
+                <name>Nil</name>
+              </funapp>
+            </arg>
+            <arg>
+              <funapp>
+                <name>Nil</name>
+              </funapp>
+            </arg>
+          </funapp>
+        </lhs>
+        <rhs>
+          <funapp>
+            <name>True</name>
+          </funapp>
+        </rhs>
+      </rule>
+      <rule>
+        <lhs>
+          <funapp>
+            <name>lgth</name>
+            <arg>
+              <funapp>
+                <name>Nil</name>
+              </funapp>
+            </arg>
+          </funapp>
+        </lhs>
+        <rhs>
+          <funapp>
+            <name>Nil</name>
+          </funapp>
+        </rhs>
+      </rule>
+      <rule>
+        <lhs>
+          <funapp>
+            <name>gt0</name>
+            <arg>
+              <funapp>
+                <name>Nil</name>
               </funapp>
             </arg>
             <arg>
               <var>y</var>
             </arg>
+          </funapp>
+        </lhs>
+        <rhs>
+          <funapp>
+            <name>False</name>
+          </funapp>
+        </rhs>
+      </rule>
+      <rule>
+        <lhs>
+          <funapp>
+            <name>monus</name>
             <arg>
-              <var>ys</var>
+              <var>x</var>
+            </arg>
+            <arg>
+              <var>y</var>
+            </arg>
+          </funapp>
+        </lhs>
+        <rhs>
+          <funapp>
+            <name>monus[Ite]</name>
+            <arg>
+              <funapp>
+                <name>eqList</name>
+                <arg>
+                  <funapp>
+                    <name>lgth</name>
+                    <arg>
+                      <var>y</var>
+                    </arg>
+                  </funapp>
+                </arg>
+                <arg>
+                  <funapp>
+                    <name>Cons</name>
+                    <arg>
+                      <funapp>
+                        <name>Nil</name>
+                      </funapp>
+                    </arg>
+                    <arg>
+                      <funapp>
+                        <name>Nil</name>
+                      </funapp>
+                    </arg>
+                  </funapp>
+                </arg>
+              </funapp>
             </arg>
             <arg>
               <var>x</var>
             </arg>
             <arg>
-              <var>xs</var>
+              <var>y</var>
             </arg>
           </funapp>
         </rhs>
@@ -296,146 +562,23 @@
       <rule>
         <lhs>
           <funapp>
-            <name>eqNatList</name>
+            <name>goal</name>
             <arg>
-              <funapp>
-                <name>Cons</name>
-                <arg>
-                  <var>x</var>
-                </arg>
-                <arg>
-                  <var>xs</var>
-                </arg>
-              </funapp>
+              <var>x</var>
             </arg>
             <arg>
-              <funapp>
-                <name>Nil</name>
-              </funapp>
+              <var>y</var>
             </arg>
           </funapp>
         </lhs>
         <rhs>
           <funapp>
-            <name>False</name>
-          </funapp>
-        </rhs>
-      </rule>
-      <rule>
-        <lhs>
-          <funapp>
-            <name>eqNatList</name>
+            <name>gcd</name>
             <arg>
-              <funapp>
-                <name>Nil</name>
-              </funapp>
+              <var>x</var>
             </arg>
             <arg>
-              <funapp>
-                <name>Cons</name>
-                <arg>
-                  <var>y</var>
-                </arg>
-                <arg>
-                  <var>ys</var>
-                </arg>
-              </funapp>
-            </arg>
-          </funapp>
-        </lhs>
-        <rhs>
-          <funapp>
-            <name>False</name>
-          </funapp>
-        </rhs>
-      </rule>
-      <rule>
-        <lhs>
-          <funapp>
-            <name>eqNatList</name>
-            <arg>
-              <funapp>
-                <name>Nil</name>
-              </funapp>
-            </arg>
-            <arg>
-              <funapp>
-                <name>Nil</name>
-              </funapp>
-            </arg>
-          </funapp>
-        </lhs>
-        <rhs>
-          <funapp>
-            <name>True</name>
-          </funapp>
-        </rhs>
-      </rule>
-      <rule>
-        <lhs>
-          <funapp>
-            <name>notEmpty</name>
-            <arg>
-              <funapp>
-                <name>Cons</name>
-                <arg>
-                  <var>x</var>
-                </arg>
-                <arg>
-                  <var>xs</var>
-                </arg>
-              </funapp>
-            </arg>
-          </funapp>
-        </lhs>
-        <rhs>
-          <funapp>
-            <name>True</name>
-          </funapp>
-        </rhs>
-      </rule>
-      <rule>
-        <lhs>
-          <funapp>
-            <name>notEmpty</name>
-            <arg>
-              <funapp>
-                <name>Nil</name>
-              </funapp>
-            </arg>
-          </funapp>
-        </lhs>
-        <rhs>
-          <funapp>
-            <name>False</name>
-          </funapp>
-        </rhs>
-      </rule>
-      <rule>
-        <lhs>
-          <funapp>
-            <name>strmatch</name>
-            <arg>
-              <var>patstr</var>
-            </arg>
-            <arg>
-              <var>str</var>
-            </arg>
-          </funapp>
-        </lhs>
-        <rhs>
-          <funapp>
-            <name>domatch</name>
-            <arg>
-              <var>patstr</var>
-            </arg>
-            <arg>
-              <var>str</var>
-            </arg>
-            <arg>
-              <funapp>
-                <name>Nil</name>
-              </funapp>
+              <var>y</var>
             </arg>
           </funapp>
         </rhs>
@@ -532,120 +675,22 @@
         <rule>
           <lhs>
             <funapp>
-              <name>!EQ</name>
-              <arg>
-                <funapp>
-                  <name>S</name>
-                  <arg>
-                    <var>x</var>
-                  </arg>
-                </funapp>
-              </arg>
-              <arg>
-                <funapp>
-                  <name>S</name>
-                  <arg>
-                    <var>y</var>
-                  </arg>
-                </funapp>
-              </arg>
-            </funapp>
-          </lhs>
-          <rhs>
-            <funapp>
-              <name>!EQ</name>
-              <arg>
-                <var>x</var>
-              </arg>
-              <arg>
-                <var>y</var>
-              </arg>
-            </funapp>
-          </rhs>
-        </rule>
-        <rule>
-          <lhs>
-            <funapp>
-              <name>!EQ</name>
-              <arg>
-                <funapp>
-                  <name>0</name>
-                </funapp>
-              </arg>
-              <arg>
-                <funapp>
-                  <name>S</name>
-                  <arg>
-                    <var>y</var>
-                  </arg>
-                </funapp>
-              </arg>
-            </funapp>
-          </lhs>
-          <rhs>
-            <funapp>
-              <name>False</name>
-            </funapp>
-          </rhs>
-        </rule>
-        <rule>
-          <lhs>
-            <funapp>
-              <name>!EQ</name>
-              <arg>
-                <funapp>
-                  <name>S</name>
-                  <arg>
-                    <var>x</var>
-                  </arg>
-                </funapp>
-              </arg>
-              <arg>
-                <funapp>
-                  <name>0</name>
-                </funapp>
-              </arg>
-            </funapp>
-          </lhs>
-          <rhs>
-            <funapp>
-              <name>False</name>
-            </funapp>
-          </rhs>
-        </rule>
-        <rule>
-          <lhs>
-            <funapp>
-              <name>!EQ</name>
-              <arg>
-                <funapp>
-                  <name>0</name>
-                </funapp>
-              </arg>
-              <arg>
-                <funapp>
-                  <name>0</name>
-                </funapp>
-              </arg>
-            </funapp>
-          </lhs>
-          <rhs>
-            <funapp>
-              <name>True</name>
-            </funapp>
-          </rhs>
-        </rule>
-        <rule>
-          <lhs>
-            <funapp>
-              <name>domatch[Ite]</name>
+              <name>monus[Ite]</name>
               <arg>
                 <funapp>
                   <name>False</name>
                 </funapp>
               </arg>
               <arg>
-                <var>patcs</var>
+                <funapp>
+                  <name>Cons</name>
+                  <arg>
+                    <var>x'</var>
+                  </arg>
+                  <arg>
+                    <var>xs'</var>
+                  </arg>
+                </funapp>
               </arg>
               <arg>
                 <funapp>
@@ -658,42 +703,16 @@
                   </arg>
                 </funapp>
               </arg>
-              <arg>
-                <var>n</var>
-              </arg>
             </funapp>
           </lhs>
           <rhs>
             <funapp>
-              <name>domatch</name>
+              <name>monus</name>
               <arg>
-                <var>patcs</var>
+                <var>xs'</var>
               </arg>
               <arg>
                 <var>xs</var>
-              </arg>
-              <arg>
-                <funapp>
-                  <name>Cons</name>
-                  <arg>
-                    <var>n</var>
-                  </arg>
-                  <arg>
-                    <funapp>
-                      <name>Cons</name>
-                      <arg>
-                        <funapp>
-                          <name>Nil</name>
-                        </funapp>
-                      </arg>
-                      <arg>
-                        <funapp>
-                          <name>Nil</name>
-                        </funapp>
-                      </arg>
-                    </funapp>
-                  </arg>
-                </funapp>
               </arg>
             </funapp>
           </rhs>
@@ -701,16 +720,13 @@
         <rule>
           <lhs>
             <funapp>
-              <name>domatch[Ite]</name>
+              <name>monus[Ite]</name>
               <arg>
                 <funapp>
                   <name>True</name>
                 </funapp>
               </arg>
               <arg>
-                <var>patcs</var>
-              </arg>
-              <arg>
                 <funapp>
                   <name>Cons</name>
                   <arg>
@@ -722,113 +738,145 @@
                 </funapp>
               </arg>
               <arg>
-                <var>n</var>
+                <var>y</var>
               </arg>
             </funapp>
           </lhs>
           <rhs>
-            <funapp>
-              <name>Cons</name>
-              <arg>
-                <var>n</var>
-              </arg>
-              <arg>
-                <funapp>
-                  <name>domatch</name>
-                  <arg>
-                    <var>patcs</var>
-                  </arg>
-                  <arg>
-                    <var>xs</var>
-                  </arg>
-                  <arg>
-                    <funapp>
-                      <name>Cons</name>
-                      <arg>
-                        <var>n</var>
-                      </arg>
-                      <arg>
-                        <funapp>
-                          <name>Cons</name>
-                          <arg>
-                            <funapp>
-                              <name>Nil</name>
-                            </funapp>
-                          </arg>
-                          <arg>
-                            <funapp>
-                              <name>Nil</name>
-                            </funapp>
-                          </arg>
-                        </funapp>
-                      </arg>
-                    </funapp>
-                  </arg>
-                </funapp>
-              </arg>
-            </funapp>
+            <var>xs</var>
           </rhs>
         </rule>
         <rule>
           <lhs>
             <funapp>
-              <name>eqNatList[Ite]</name>
+              <name>gcd[Ite]</name>
               <arg>
                 <funapp>
                   <name>False</name>
                 </funapp>
               </arg>
               <arg>
-                <var>y</var>
-              </arg>
-              <arg>
-                <var>ys</var>
-              </arg>
-              <arg>
                 <var>x</var>
               </arg>
               <arg>
-                <var>xs</var>
+                <var>y</var>
               </arg>
             </funapp>
           </lhs>
           <rhs>
             <funapp>
-              <name>False</name>
+              <name>gcd[False][Ite]</name>
+              <arg>
+                <funapp>
+                  <name>gt0</name>
+                  <arg>
+                    <var>x</var>
+                  </arg>
+                  <arg>
+                    <var>y</var>
+                  </arg>
+                </funapp>
+              </arg>
+              <arg>
+                <var>x</var>
+              </arg>
+              <arg>
+                <var>y</var>
+              </arg>
             </funapp>
           </rhs>
         </rule>
         <rule>
           <lhs>
             <funapp>
-              <name>eqNatList[Ite]</name>
+              <name>gcd[Ite]</name>
               <arg>
                 <funapp>
                   <name>True</name>
                 </funapp>
               </arg>
               <arg>
-                <var>y</var>
+                <var>x</var>
               </arg>
               <arg>
-                <var>ys</var>
+                <var>y</var>
+              </arg>
+            </funapp>
+          </lhs>
+          <rhs>
+            <var>x</var>
+          </rhs>
+        </rule>
+        <rule>
+          <lhs>
+            <funapp>
+              <name>gcd[False][Ite]</name>
+              <arg>
+                <funapp>
+                  <name>False</name>
+                </funapp>
               </arg>
               <arg>
                 <var>x</var>
               </arg>
               <arg>
-                <var>xs</var>
+                <var>y</var>
               </arg>
             </funapp>
           </lhs>
           <rhs>
             <funapp>
-              <name>eqNatList</name>
+              <name>gcd</name>
               <arg>
-                <var>xs</var>
+                <funapp>
+                  <name>monus</name>
+                  <arg>
+                    <var>y</var>
+                  </arg>
+                  <arg>
+                    <var>x</var>
+                  </arg>
+                </funapp>
               </arg>
               <arg>
-                <var>ys</var>
+                <var>x</var>
+              </arg>
+            </funapp>
+          </rhs>
+        </rule>
+        <rule>
+          <lhs>
+            <funapp>
+              <name>gcd[False][Ite]</name>
+              <arg>
+                <funapp>
+                  <name>True</name>
+                </funapp>
+              </arg>
+              <arg>
+                <var>x</var>
+              </arg>
+              <arg>
+                <var>y</var>
+              </arg>
+            </funapp>
+          </lhs>
+          <rhs>
+            <funapp>
+              <name>gcd</name>
+              <arg>
+                <var>y</var>
+              </arg>
+              <arg>
+                <funapp>
+                  <name>monus</name>
+                  <arg>
+                    <var>x</var>
+                  </arg>
+                  <arg>
+                    <var>y</var>
+                  </arg>
+                </funapp>
               </arg>
             </funapp>
           </rhs>
@@ -837,19 +885,19 @@
     </rules>
     <signature>
       <funcsym>
-        <name>domatch[Ite]</name>
-        <arity>4</arity>
+        <name>lgth</name>
+        <arity>1</arity>
+      </funcsym>
+      <funcsym>
+        <name>monus[Ite]</name>
+        <arity>3</arity>
       </funcsym>
       <funcsym>
         <name>True</name>
         <arity>0</arity>
       </funcsym>
       <funcsym>
-        <name>strmatch</name>
-        <arity>2</arity>
-      </funcsym>
-      <funcsym>
-        <name>prefix</name>
+        <name>gcd</name>
         <arity>2</arity>
       </funcsym>
       <funcsym>
@@ -857,40 +905,40 @@
         <arity>0</arity>
       </funcsym>
       <funcsym>
+        <name>@</name>
+        <arity>2</arity>
+      </funcsym>
+      <funcsym>
+        <name>monus</name>
+        <arity>2</arity>
+      </funcsym>
+      <funcsym>
         <name>and</name>
         <arity>2</arity>
       </funcsym>
       <funcsym>
-        <name>eqNatList[Ite]</name>
-        <arity>5</arity>
-      </funcsym>
-      <funcsym>
-        <name>!EQ</name>
+        <name>eqList</name>
         <arity>2</arity>
       </funcsym>
       <funcsym>
-        <name>S</name>
-        <arity>1</arity>
+        <name>gt0</name>
+        <arity>2</arity>
       </funcsym>
       <funcsym>
         <name>Cons</name>
         <arity>2</arity>
       </funcsym>
       <funcsym>
-        <name>0</name>
-        <arity>0</arity>
-      </funcsym>
-      <funcsym>
-        <name>notEmpty</name>
-        <arity>1</arity>
-      </funcsym>
-      <funcsym>
-        <name>eqNatList</name>
-        <arity>2</arity>
-      </funcsym>
-      <funcsym>
-        <name>domatch</name>
+        <name>gcd[Ite]</name>
         <arity>3</arity>
+      </funcsym>
+      <funcsym>
+        <name>gcd[False][Ite]</name>
+        <arity>3</arity>
+      </funcsym>
+      <funcsym>
+        <name>goal</name>
+        <arity>2</arity>
       </funcsym>
       <funcsym>
         <name>False</name>
@@ -900,7 +948,7 @@
   </trs>
   <strategy>INNERMOST</strategy>
   <metainformation>
-    <originalfilename>Frederiksen_Others/strmatch.tml.trs</originalfilename>
+    <originalfilename>Frederiksen_Glenstrup/gcd2.tml.trs</originalfilename>
   </metainformation>
 </problem>
 
