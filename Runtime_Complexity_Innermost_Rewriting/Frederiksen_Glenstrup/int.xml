@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?xml-stylesheet type="text/xsl" href="../../xml/xtcHTML.xsl"?>
-<problem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xml/xtc.xsd" type="termination">
+<problem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xml/xtc.xsd" type="complexity">
   <trs>
     <rules>
       <rule>
@@ -6740,6 +6740,7 @@
     </signature>
   </trs>
   <strategy>INNERMOST</strategy>
+  <startterm><constructor-based/></startterm>
   <metainformation>
     <originalfilename>Frederiksen_Glenstrup/int.trs</originalfilename>
   </metainformation>
