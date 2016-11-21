@@ -56,7 +56,14 @@
     </xsl:if> -->
     <tr>
       <td class="info_head">Strategy:</td>
-      <td class="info"><xsl:apply-templates select="strategy"/></td>
+      <td class="info">
+        <xsl:choose>
+          <xsl:when test="strategy">
+            <xsl:apply-templates select="strategy"/>
+          </xsl:when>
+          <xsl:otherwise>Unspecified</xsl:otherwise>
+        </xsl:choose>
+      </td>
     </tr>
     <xsl:if test="startterm">
     <tr>

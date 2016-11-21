@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<problem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="termination" xsi:noNamespaceSchemaLocation="http://termcomp.uibk.ac.at/2013/xtc.xsd">
+<?xml-stylesheet type="text/xsl" href="../../xml/xtcHTML.xsl"?>
+<problem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xml/xtc.xsd" type="termination">
   <trs>
     <rules>
       <rule>
